@@ -1,0 +1,57 @@
+services:
+  endurain:
+    container_name: endurain
+    image: ghcr.io/mdusher/endurain:latest
+    build:
+      context: docker/
+      dockerfile: Dockerfile
+    environment:
+      - UID=197609
+      - GID=197609
+      - TZ=Europe/Lisbon
+      - DB_TYPE=postgres
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USER=endurain
+      - DB_PASSWORD=endurain
+      - SECRET_KEY=changeme # `openssl rand -hex 32`
+      - GEOCODES_MAPS_API=changeme
+      - ENDURAIN_HOST=http://localhost:8080 # host or local ip (example: http://192.168.1.10:8080 or https://endurain.com), default is http://localhost:8080
+      - BEHIND_PROXY=false # default value is false. Change to true if behind reverse proxy
+    volumes:
+      - ./endurain/backend/app:/backend/app # Configure volume if you want to edit the code locally by cloning the repo
+      - user_images_data:/app/backend/user_images # necessary for user image persistence on container image updates
+      - bulk_import_data:/app/backend/files/bulk_import # necessary to enable bulk import of activities. Place here your activities files
+      - process_data:/app/backend/files/processed # necessary for processed original files persistence on container image updates
+      - log_data:/app/backend/logs # log files for the backend
+    ports:
+      - "8080:8080" # Endurain port, change per your needs
+    depends_on:
+      postgres: # mariadb or postgres
+        condition: service_healthy # remove this line when using mariadb
+    restart: unless-stopped
+
+  # postgres logic
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      - POSTGRES_DB=endurain
+      - POSTGRES_USER=endurain
+      - POSTGRES_PASSWORD=endurain
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U endurain"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  db_data:
+  log_data:
+  process_data:
+  bulk_import_data:
+  user_images_data:

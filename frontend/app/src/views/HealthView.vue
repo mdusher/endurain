@@ -12,6 +12,7 @@
 
         <!-- Include the SettingsUserProfileZone -->
         <HealthWeightZone :userHealthData="userHealthData" :userHealthDataPagination="userHealthDataPagination" :userHealthTargets="userHealthTargets" :isLoading="isLoading" :totalPages="totalPages" :pageNumber="pageNumber" @createdWeight="updateWeightListAdded" @deletedWeight="updateWeightListDeleted" @editedWeight="updateWeightListEdited" @pageNumberChanged="setPageNumber" v-if="activeSection === 'weight' && !isLoading" />
+        <HealthVO2MaxZone :userHealthData="userHealthData" :userHealthDataPagination="userHealthDataPagination" :userHealthTargets="userHealthTargets" :isLoading="isLoading" :totalPages="totalPages" :pageNumber="pageNumber" @pageNumberChanged="setPageNumber" v-if="activeSection === 'vo2max' && !isLoading" />
     </div>
     <!-- back button -->
     <BackButtonComponent />
@@ -26,6 +27,7 @@ import { push } from "notivue";
 import HealthSideBarComponent from "../components/Health/HealthSideBarComponent.vue";
 import HealthDashboardZone from "../components/Health/HealthDashboardZoneComponent.vue";
 import HealthWeightZone from "../components/Health/HealthWeightZone.vue";
+import HealthVO2MaxZone from "../components/Health/HealthVO2MaxZone.vue";
 import BackButtonComponent from "@/components/GeneralComponents/BackButtonComponent.vue";
 import LoadingComponent from "@/components/GeneralComponents/LoadingComponent.vue";
 // Importing the services
@@ -37,6 +39,7 @@ export default {
 		HealthSideBarComponent,
 		HealthDashboardZone,
 		HealthWeightZone,
+		HealthVO2MaxZone,
 		BackButtonComponent,
 		LoadingComponent,
 	},

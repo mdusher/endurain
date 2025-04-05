@@ -2,6 +2,7 @@ from fastapi import HTTPException, status
 from sqlalchemy import func, desc
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
+from datetime import date
 
 import users.crud as users_crud
 
@@ -37,7 +38,6 @@ def get_all_health_data(db: Session):
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Internal Server Error",
         ) from err
-
 
 def get_health_data_number(user_id: int, db: Session):
     try:
@@ -168,6 +168,7 @@ def create_health_data(
             date=health_data.date,
             weight=health_data.weight,
             bmi=health_data.bmi,
+            vo2max=health_data.vo2max,
             # body_fat=health_data.body_fat,
             # body_water=health_data.body_water,
             # bone_mass=health_data.bone_mass,
@@ -248,7 +249,6 @@ def edit_health_data(user_id, health_data: health_data_schema.HealthData, db: Se
     except Exception as err:
         # Rollback the transaction
         db.rollback()
-
         # Log the exception
         core_logger.print_to_log(f"Error in edit_health_data: {err}", "error", exc=err)
 

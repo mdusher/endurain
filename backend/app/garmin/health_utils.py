@@ -16,6 +16,23 @@ import users.crud as users_crud
 
 from core.database import SessionLocal
 
+def fetch_vo2max_by_date(
+    garminconnect_client: garminconnect.Garmin,
+    calendar_date: str,
+    user_id: int
+) -> dict:
+    # Fetch garmin Connect max metrics for the specified date
+    garmin_mm = garminconnect_client.get_max_metrics(f'{calendar_date}')
+
+    if garmin_mm:
+        try:
+            return garmin_mm[0]['generic']['vo2MaxPreciseValue']
+        except (IndexError, KeyError):
+            # Log an information event if metrics were retrieved, but precise vo2Max was missing
+            core_logger.print_to_log_and_console(
+               f"User {user_id}: Unable to process max metrics for {calendar_date}: vo2MaxPreciseValue unable to be read"
+            )
+    return None
 
 def fetch_and_process_bc(
     garminconnect_client: garminconnect.Garmin,
@@ -37,11 +54,18 @@ def fetch_and_process_bc(
 
     # Process body composition
     for bc in garmin_bc["dateWeightList"]:
+        
+        vo2max = fetch_vo2max_by_date(
+            garminconnect_client=garminconnect_client,
+            calendar_date=bc["calendarDate"],
+            user_id=user_id
+        )
         health_data = health_data_schema.HealthData(
             user_id=user_id,
             date=bc["calendarDate"],
             weight=bc["weight"] / 1000,
             bmi=bc["bmi"],
+            vo2max=vo2max,
             #body_fat=bc["bodyFat"],
             #body_water=bc["bodyWater"],
             #bone_mass=bc["boneMass"],
@@ -122,6 +146,9 @@ def get_user_garminconnect_bc_by_days(start_date: datetime, user_id: int):
             garminconnect_client, start_date, user_id, db
         )
 
+        # Backfill vo2max values where possible
+        populate_user_garminconnect_vo2max(user_id=user_id)
+
         # Log an informational event for tracing
         core_logger.print_to_log(
             f"User {user_id}: {num_garminconnect_bc_processed} Garmin Connect body composition processed"
@@ -129,3 +156,45 @@ def get_user_garminconnect_bc_by_days(start_date: datetime, user_id: int):
     finally:
         # Ensure the session is closed after use
         db.close()
+
+
+def populate_user_garminconnect_vo2max(user_id: int):
+    """ Populates health data entries with the most recent vo2max before it """
+    db = SessionLocal()
+    try:
+        health_data = health_data_crud.get_all_health_data_by_user_id(user_id=user_id, db=db)
+        if health_data: 
+            # Backfill vo2max for entries that do not have one
+            vo2max_last = None
+            for health_entry in reversed(health_data):
+                if health_entry.vo2max:
+                    vo2max_last = health_entry.vo2max
+                
+                # Set vo2max to the last value if it is not set and update in database.
+                if health_entry.vo2max is None:
+                    update_health_data = health_data_schema.HealthData(
+                        id=health_entry.id,
+                        vo2max=vo2max_last
+                    )
+                    health_data_crud.edit_health_data(user_id=user_id, health_data=update_health_data, db=db)
+
+            core_logger.print_to_log(
+                f"User {user_id}: Backfilling body composition with vo2max complete"
+            )
+    finally:
+        db.close()
+
+def populate_user_garminconnect_vo2max_all_users():
+    # Create a new database session
+    db = SessionLocal()
+
+    try:
+        # Get all users
+        users = users_crud.get_all_users(db)
+    finally:
+        # Ensure the session is closed after use
+        db.close()
+
+    # Process the body composition for each user
+    for user in users:
+        populate_user_garminconnect_vo2max(user_id=user.id)

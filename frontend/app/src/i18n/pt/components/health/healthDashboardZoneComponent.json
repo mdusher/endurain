@@ -9,5 +9,12 @@
     "bmiOverweight": "Acima do peso",
     "bmiObesityClass1": "Obesidade (Classe 1)",
     "bmiObesityClass2": "Obesidade (Classe 2)",
-    "bmiObesityClass3": "Obesidade extrema (Classe 3)"
+    "bmiObesityClass3": "Obesidade extrema (Classe 3)",
+    "vo2max": "VO2 Max",
+    "vo2maxPoor": "Poor",
+    "vo2maxFair": "Fair",
+    "vo2maxGood": "Good",
+    "vo2maxExcellent": "Excellent",
+    "vo2maxSuperior": "Superior",
+    "noVo2MaxData": "No VO2 Max Data"
 }

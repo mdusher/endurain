@@ -50,7 +50,10 @@ def startup_event():
         "Retrieving last day body composition from Garmin Connect on startup"
     )
     garmin_health_utils.retrieve_garminconnect_users_bc_for_days(1)
-
+    core_logger.print_to_log_and_console(
+        "Backfilling vo2Max based on avaialble values for all users on startup"
+    )
+    garmin_health_utils.populate_user_garminconnect_vo2max_all_users()
 
 def shutdown_event():
     # Log the shutdown event

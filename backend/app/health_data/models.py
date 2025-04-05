@@ -37,6 +37,11 @@ class HealthData(Base):
         nullable=True,
         comment="Body mass index (BMI)",
     )
+    vo2max = Column(
+        DECIMAL(precision=2, scale=2),
+        nullable=True,
+        comment="vo2Max",
+    )
     # body_fat = Column(
     #     DECIMAL(precision=10, scale=2),
     #     nullable=True,

@@ -18,6 +18,8 @@ import caHealthWeightListComponent from './ca/components/health/healthWeightZone
 import caHealthDashboardZoneComponent from './ca/components/health/healthDashboardZoneComponent.json'
 import caHealthSideBarComponent from './ca/components/health/healthSideBarComponent.json';
 import caHealthWeightZoneComponent from './ca/components/health/healthWeightZoneComponent.json'
+import caHealthVO2MaxZoneComponent from './ca/components/health/healthVO2MaxZoneComponent.json'
+
 // Navbar components
 import caNavbarBottomMobileComponent from './ca/components/navbar/navbarBottomMobileComponent.json';
 import caNavbarComponent from './ca/components/navbar/navbarComponent.json';
@@ -70,6 +72,7 @@ import deHealthWeightListComponent from './de/components/health/healthWeightZone
 import deHealthDashboardZoneComponent from './de/components/health/healthDashboardZoneComponent.json'
 import deHealthSideBarComponent from './de/components/health/healthSideBarComponent.json';
 import deHealthWeightZoneComponent from './de/components/health/healthWeightZoneComponent.json'
+import deHealthVO2MaxZoneComponent from './de/components/health/healthVO2MaxZoneComponent.json'
 // Navbar components
 import deNavbarBottomMobileComponent from './de/components/navbar/navbarBottomMobileComponent.json';
 import deNavbarComponent from './de/components/navbar/navbarComponent.json';
@@ -123,6 +126,7 @@ import frHealthWeightListComponent from './fr/components/health/healthWeightZone
 import frHealthDashboardZoneComponent from './fr/components/health/healthDashboardZoneComponent.json'
 import frHealthSideBarComponent from './fr/components/health/healthSideBarComponent.json';
 import frHealthWeightZoneComponent from './fr/components/health/healthWeightZoneComponent.json'
+import frHealthVO2MaxZoneComponent from './fr/components/health/healthVO2MaxZoneComponent.json'
 // Navbar components
 import frNavbarBottomMobileComponent from './fr/components/navbar/navbarBottomMobileComponent.json';
 import frNavbarComponent from './fr/components/navbar/navbarComponent.json';
@@ -176,6 +180,7 @@ import ptHealthWeightListComponent from './pt/components/health/healthWeightZone
 import ptHealthDashboardZoneComponent from './pt/components/health/healthDashboardZoneComponent.json'
 import ptHealthSideBarComponent from './pt/components/health/healthSideBarComponent.json';
 import ptHealthWeightZoneComponent from './pt/components/health/healthWeightZoneComponent.json'
+import ptHealthVO2MaxZoneComponent from './pt/components/health/healthVO2MaxZoneComponent.json'
 // Navbar components
 import ptNavbarBottomMobileComponent from './pt/components/navbar/navbarBottomMobileComponent.json';
 import ptNavbarComponent from './pt/components/navbar/navbarComponent.json';
@@ -228,6 +233,7 @@ import usHealthWeightListComponent from './us/components/health/healthWeightZone
 import usHealthDashboardZoneComponent from './us/components/health/healthDashboardZoneComponent.json'
 import usHealthSideBarComponent from './us/components/health/healthSideBarComponent.json';
 import usHealthWeightZoneComponent from './us/components/health/healthWeightZoneComponent.json'
+import usHealthVO2MaxZoneComponent from './us/components/health/healthVO2MaxZoneComponent.json'
 // Navbar components
 import usNavbarBottomMobileComponent from './us/components/navbar/navbarBottomMobileComponent.json';
 import usNavbarComponent from './us/components/navbar/navbarComponent.json';
@@ -282,6 +288,7 @@ const messages = {
     healthDashboardZoneComponent: caHealthDashboardZoneComponent,
     healthWeightZoneComponent: caHealthWeightZoneComponent,
     healthWeightListComponent: caHealthWeightListComponent,
+    healthVO2MaxZoneComponent: caHealthVO2MaxZoneComponent,
     // Navbar components
     navbarBottomMobileComponent: caNavbarBottomMobileComponent,
     navbarComponent: caNavbarComponent,
@@ -334,6 +341,7 @@ const messages = {
     healthDashboardZoneComponent: deHealthDashboardZoneComponent,
     healthWeightZoneComponent: deHealthWeightZoneComponent,
     healthWeightListComponent: deHealthWeightListComponent,
+    healthVO2MaxZoneComponent: deHealthVO2MaxZoneComponent,
     // Navbar components
     navbarBottomMobileComponent: deNavbarBottomMobileComponent,
     navbarComponent: deNavbarComponent,
@@ -386,6 +394,7 @@ const messages = {
     healthDashboardZoneComponent: frHealthDashboardZoneComponent,
     healthWeightZoneComponent: frHealthWeightZoneComponent,
     healthWeightListComponent: frHealthWeightListComponent,
+    healthVO2MaxZoneComponent: frHealthVO2MaxZoneComponent,
     // Navbar components
     navbarBottomMobileComponent: frNavbarBottomMobileComponent,
     navbarComponent: frNavbarComponent,
@@ -438,6 +447,7 @@ const messages = {
     healthDashboardZoneComponent: ptHealthDashboardZoneComponent,
     healthWeightZoneComponent: ptHealthWeightZoneComponent,
     healthWeightListComponent: ptHealthWeightListComponent,
+    healthVO2MaxZoneComponent: ptHealthVO2MaxZoneComponent,
     // Navbar components
     navbarBottomMobileComponent: ptNavbarBottomMobileComponent,
     navbarComponent: ptNavbarComponent,
@@ -490,6 +500,7 @@ const messages = {
     healthDashboardZoneComponent: usHealthDashboardZoneComponent,
     healthWeightZoneComponent: usHealthWeightZoneComponent,
     healthWeightListComponent: usHealthWeightListComponent,
+    healthVO2MaxZoneComponent: usHealthVO2MaxZoneComponent,
     // Navbar components
     navbarBottomMobileComponent: usNavbarBottomMobileComponent,
     navbarComponent: usNavbarComponent,

@@ -31,6 +31,21 @@
             </div>
         </div>
     </div>
+    <div class="col">
+        <div class="card mb-3 text-center shadow-sm">
+            <div class="card-header">
+                <h4>{{ $t("healthDashboardZoneComponent.vo2max") }}</h4>
+            </div>
+            <div class="card-body">
+                <h1 v-if="currentVo2Max">{{ currentVo2Max }}</h1>
+                <h1 v-else>{{ $t("generalItems.labelNotApplicable") }}</h1>
+            </div>
+            <div class="card-footer text-body-secondary">
+                <span v-if="currentVo2Max">{{ vo2maxDescription }}</span>
+                <span v-else>{{ $t("healthDashboardZoneComponent.noVo2MaxData") }}</span>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -39,12 +54,16 @@ import { useI18n } from "vue-i18n";
 // Importing the stores
 import { useAuthStore } from "@/stores/authStore";
 import { kgToLbs } from "@/utils/unitsUtils";
-
+import vo2maxRanges from "@/components/Health/HealthVO2MaxRanges.json"
 export default {
-	components: {
+    components: {
         
-	},
+    },
     props: {
+        user: {
+            type: [Object, null],
+            required: true
+        },
         userHealthData: {
             type: [Object, null],
             required: true,
@@ -54,12 +73,15 @@ export default {
             required: true,
         },
     },
-	setup(props) {
-		const { t } = useI18n();
-		const authStore = useAuthStore();
+    setup(props) {
+        const { t } = useI18n();
+        const authStore = useAuthStore();
         const currentWeight = ref(null);
         const currentBMI = ref(null);
         const bmiDescription = ref(null);
+        const currentVo2Max = ref(null);
+        const vo2maxDescription = ref(null);
+        const vo2maxRange = null;
 
         onMounted(async () => {
             if(props.userHealthData){
@@ -67,6 +89,7 @@ export default {
                     if(data.weight){
                         currentWeight.value = data.weight;
                         currentBMI.value = data.bmi;
+                        currentVo2Max.value = data.vo2max;
                         break;
                     }
                 }
@@ -86,17 +109,39 @@ export default {
                         bmiDescription.value = t("healthDashboardZoneComponent.bmiObesityClass3");
                     }
                 }
+
+                if (currentVo2Max.value){
+                    
+                    const vo2MaxRange = vo2maxRanges.MALE["20-29"]
+                    for (const key in vo2MaxRange) {
+                        const vo2Data = vo2MaxRange[key];
+                        if (vo2Data.max !== null && vo2Data.min !== null && currentVo2Max.value > vo2Data.min && currentVo2Max.value <= vo2Data.max) {
+                            vo2maxDescription.value = t(vo2Data.category);
+                            break;
+                        }
+                        if (vo2Data.max !== null && vo2Data.min === null && currentVo2Max.value <= vo2Data.max) {
+                            vo2maxDescription.value = t(vo2Data.category);
+                            break;
+                        }
+                        if (vo2Data.max === null && vo2Data.min !== null && currentVo2Max.value >= vo2Data.min) {
+                            vo2maxDescription.value = t(vo2Data.category);
+                            break;
+                        }
+                    }
+                }
             }
         });
 
 
-		return {
+        return {
             authStore,
             currentWeight,
             currentBMI,
             bmiDescription,
             kgToLbs,
-		};
-	},
+            currentVo2Max,
+            vo2maxDescription
+        };
+    },
 };
 </script>

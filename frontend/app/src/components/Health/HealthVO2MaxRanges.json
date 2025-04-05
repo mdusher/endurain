@@ -1,0 +1,330 @@
+{
+  "MALE": {
+    "20-29": [
+      {
+        "category": "healthDashboardZoneComponent.vo2maxSuperior",
+        "max": null,
+        "min": 55.4
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxExcellent",
+        "max": 55.4,
+        "min": 51.1
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxGood",
+        "max": 51.1,
+        "min": 45.4
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxFair",
+        "max": 45.4,
+        "min": 41.7
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxPoor",
+        "max": 41.7,
+        "min": null
+      } 
+    ],
+    "30-39": [
+      {
+        "category": "healthDashboardZoneComponent.vo2maxSuperior",
+        "max": null,
+        "min": 54
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxExcellent",
+        "max": 54,
+        "min": 48.3
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxGood",
+        "max": 48.3,
+        "min": 44
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxFair",
+        "max": 44,
+        "min": 40.5
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxPoor",
+        "max": 40.5,
+        "min": null
+      }
+    ],
+    "40-49": [
+      {
+        "category": "healthDashboardZoneComponent.vo2maxSuperior",
+        "max": null,
+        "min": 52.5
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxExcellent",
+        "max": 52.5,
+        "min": 46.4
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxGood",
+        "max": 46.4,
+        "min": 42.4
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxFair",
+        "max": 42.4,
+        "min": 38.5
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxPoor",
+        "max": 38.5,
+        "min": null
+      }    
+    ],
+    "50-59": [
+      {
+        "category": "healthDashboardZoneComponent.vo2maxSuperior",
+        "max": null,
+        "min": 48.9
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxExcellent",
+        "max": 48.9,
+        "min": 43.4
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxGood",
+        "max": 43.4,
+        "min": 39.2
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxFair",
+        "max": 39.2,
+        "min": 35.6
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxPoor",
+        "max": 35.6,
+        "min": null
+      }
+    ],
+    "60-69": [
+      {
+        "category": "healthDashboardZoneComponent.vo2maxSuperior",
+        "max": null,
+        "min": 45.7
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxExcellent",
+        "max": 45.7,
+        "min": 39.5
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxGood",
+        "max": 39.5,
+        "min": 35.5
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxFair",
+        "max": 35.5,
+        "min": 32.3
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxPoor",
+        "max": 32.3,
+        "min": null
+      }
+    ],
+    "70-79": [
+      {
+        "category": "healthDashboardZoneComponent.vo2maxSuperior",
+        "max": null,
+        "min": 42.1
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxExcellent",
+        "max": 42.1,
+        "min": 36.7
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxGood",
+        "max": 36.7,
+        "min": 32.3
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxFair",
+        "max": 32.3,
+        "min": 29.4
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxPoor",
+        "max": 29.4,
+        "min": null
+      }
+    ]
+  },
+  "FEMALE": {
+    "20-29": [
+      {
+        "category": "healthDashboardZoneComponent.vo2maxSuperior",
+        "max": null,
+        "min": 49.6
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxExcellent",
+        "max": 49.6,
+        "min": 43.9
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxGood",
+        "max": 43.9,
+        "min": 39.5
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxFair",
+        "max": 39.5,
+        "min": 36.1
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxPoor",
+        "max": 36.1,
+        "min": null
+      }
+    ],
+    "30-39": [
+      {
+        "category": "healthDashboardZoneComponent.vo2maxSuperior",
+        "max": null,
+        "min": 47.4
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxExcellent",
+        "max": 47.4,
+        "min": 42.4
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxGood",
+        "max": 42.4,
+        "min": 37.8
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxFair",
+        "max": 37.8,
+        "min": 34.4
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxPoor",
+        "max": 34.4,
+        "min": null
+      } 
+    ],
+    "40-49": [
+      {
+        "category": "healthDashboardZoneComponent.vo2maxSuperior",
+        "max": null,
+        "min": 45.3
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxExcellent",
+        "max": 45.3,
+        "min": 39.7
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxGood",
+        "max": 39.7,
+        "min": 36.3
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxFair",
+        "max": 36.3,
+        "min": 33
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxPoor",
+        "max": 33,
+        "min": null
+      } 
+    ],
+    "50-59": [
+      {
+        "category": "healthDashboardZoneComponent.vo2maxSuperior",
+        "max": null,
+        "min": 41.1
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxExcellent",
+        "max": 41.1,
+        "min": 36.7
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxGood",
+        "max": 36.7,
+        "min": 33
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxFair",
+        "max": 33,
+        "min": 30.1
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxPoor",
+        "max": 30.1,
+        "min": null
+      } 
+    ],
+    "60-69": [
+      {
+        "category": "healthDashboardZoneComponent.vo2maxSuperior",
+        "max": null,
+        "min": 37.8
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxExcellent",
+        "max": 37.8,
+        "min": 33
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxGood",
+        "max": 33,
+        "min": 30
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxFair",
+        "max": 30,
+        "min": 27.5
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxPoor",
+        "max": 27.5,
+        "min": null
+      } 
+    ],
+    "70-79": [
+      {
+        "category": "healthDashboardZoneComponent.vo2maxSuperior",
+        "max": null,
+        "min": 36.7
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxExcellent",
+        "max": 36.7,
+        "min": 30.9
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxGood",
+        "max": 30.9,
+        "min": 28.1
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxFair",
+        "max": 28.1,
+        "min": 25.9
+      },
+      {
+        "category": "healthDashboardZoneComponent.vo2maxPoor",
+        "max": 25.9,
+        "min": null
+      } 
+    ]
+  }
+}

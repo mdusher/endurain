@@ -7,6 +7,7 @@ class HealthData(BaseModel):
     date: datetime_date | None = None
     weight: float | None = None
     bmi: float | None = None
+    vo2max: float | None = None
     #body_fat: float | None = None
     #body_water: float | None = None
     #bone_mass: float | None = None

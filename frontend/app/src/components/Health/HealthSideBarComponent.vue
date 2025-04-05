@@ -14,6 +14,12 @@
                     <span class="ms-1">{{ $t("healthSideBarComponent.weightSection") }}</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link link-body-emphasis" :class="{ active: activeSection === 'vo2max' }" @click.prevent="changeActive('vo2max')">
+                    <font-awesome-icon :icon="['fas', 'person-running']" />
+                    <span class="ms-1">{{ $t("healthSideBarComponent.vo2maxSection") }}</span>
+                </a>
+            </li>
         </ul>
     </div>
 </template>
